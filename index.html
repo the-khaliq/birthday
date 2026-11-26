@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Faiza — Golden Hour Edition 💕</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Mr+De+Haviland&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Linked Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="golden">
+  <!-- Sunlit Golden Hour Backdrop & Live Canvases -->
+  <div class="sunlit-bg"></div>
+  <div class="sunbeam beam-1"></div>
+  <div class="sunbeam beam-2"></div>
+  <canvas id="ambientCanvas"></canvas>
+  <canvas id="sparklerCanvas"></canvas>
+
+  <!-- Optional Custom MP3 Audio Element -->
+  <audio id="customAudio" loop crossorigin="anonymous"></audio>
+
+  <!-- Opening Golden Hour Curtain -->
+  <div id="welcomeGate">
+    <div class="gate-card">
+      <div class="sun-medallion">☀️</div>
+      <p class="gate-date">HAPPY BIRTHDAY • 26 Nov</p>
+      <h1>Happy Birthday,<br><span>Faiza</span></h1>
+      <p class="gate-sub">
+        Step into a warm golden-hour birthday space crafted around your portraits, music, and wishes.
+      </p>
+      <button id="enterBtn" class="amber-btn">Begin Your Birthday Celebration ✨</button>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="topbar">
+    <a href="#hero" class="brand">Faiza ☀️</a>
+
+    <nav class="nav-links">
+      <a href="#hero">Birthday</a>
+      <a href="#lookbook">Portrait Book</a>
+      <a href="#vinyl">Vinyl Player</a>
+      <a href="#jar">Wish Jar</a>
+      <a href="#wheel">Wheel</a>
+      <a href="#cake">Cake</a>
+    </nav>
+
+    <div class="top-actions">
+      <button id="themeBtn" class="chip-btn" title="Switch background colors">
+        🎨 <span id="themeLabel">Golden Hour</span>
+      </button>
+      <button id="navMusicBtn" class="chip-btn" title="Play or pause music">
+        💿 <span id="navMusicLabel">Play Vinyl</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. GOLDEN HOUR HERO SECTION -->
+    <section id="hero" class="section hero">
+      <div class="hero-copy">
+        <div class="date-pill">🎂 CELEBRATING YOUR BIRTHDAY • 26 Nov</div>
+        <h1>
+          Wishing a Golden Birthday to
+          <span class="calligraphy">Faiza</span>
+        </h1>
+        <p class="type-line">
+          Today shines for <span id="typewriter"></span><span class="caret">|</span>
+        </p>
+        <p class="hero-desc">
+          May this new chapter of your life feel like warm sunlight—gentle, luminous, full of laughter, and overflowing with every dream your heart quietly hopes for.
+        </p>
+        <div class="hero-btns">
+          <a href="#lookbook" class="amber-btn">Open Her Portrait Book 📖</a>
+          <button id="sparkleBurstBtn" class="outline-btn">Golden Sparkler Burst ✨</button>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="arch-frame" id="heroFrame">
+          <div class="arch-border"></div>
+          <!-- Replace main.jpg with her featured portrait -->
+          <img id="mainPortrait" src="main.JPG" alt="Birthday Girl Featured Portrait" data-label="Featured Portrait (main.jpg)" />
+          <div class="arch-badge">Birthday Queen 👑</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTERACTIVE 3D PAGE-TURNING PORTRAIT LOOKBOOK (STRICTLY HER PHOTOS) -->
+    <section id="lookbook" class="section">
+      <div class="section-head">
+        <span class="eyebrow">Every Frame of You</span>
+        <h2>Her Birthday Portrait Book</h2>
+        <p class="sub">Turn the gilded pages to admire each portrait—click any photo to view it in full spotlight.</p>
+      </div>
+
+      <!-- Optional Instant Local Photo Previewer -->
+      <div class="upload-bar">
+        <label for="photoPicker" class="upload-pill">
+          💕HAPPY BIRTHDAY ONCE AGAIN💕
+        </label>
+        <input type="file" id="photoPicker" accept="image/*" multiple hidden />
+      </div>
+
+      <div class="book-stage">
+        <button id="prevPageBtn" class="nav-circle" aria-label="Previous page">←</button>
+
+        <div class="book-container">
+          <div class="book-spine"></div>
+          <div class="book-pages" id="bookPages">
+            <!-- Cover Page -->
+            <div class="book-page cover-page" data-page="0">
+              <div class="cover-inner">
+                <span class="cover-ornament">✦ ☀️ ✦</span>
+                <p class="cover-date">26 Nov</p>
+                <h3>Happy Birthday</h3>
+                <div class="cover-name">Faiza</div>
+                <p class="cover-hint">Tap "Next Page" or click cover to open →</p>
+              </div>
+            </div>
+
+            <!-- Portrait Page 1 -->
+            <figure class="book-page photo-page" data-page="1" data-caption="Golden Hour Glow ✨">
+              <div class="page-photo-wrap">
+                <img src="photo1.JPG" alt="Her Portrait 1" data-label="Portrait 1 (photo1.jpg)" />
+              </div>
+              <figcaption>
+                <span>01</span>
+                <strong>Golden Hour Glow ✨</strong>
+              </figcaption>
+            </figure>
+
+            <!-- Portrait Page 2 -->
+            <figure class="book-page photo-page" data-page="2" data-caption="Effortless Grace 🌿">
+              <div class="page-photo-wrap">
+                <img src="photo2.JPG" alt="Her Portrait 2" data-label="Portrait 2 (photo2.jpg)" />
+              </div>
+              <figcaption>
+                <span>02</span>
+                <strong>Effortless Grace 🌿</strong>
+              </figcaption>
+            </figure>
+
+            <!-- Portrait Page 3 -->
+            <figure class="book-page photo-page" data-page="3" data-caption="Radiant Smile ☀️">
+              <div class="page-photo-wrap">
+                <img src="photo3.JPG" alt="Her Portrait 3" data-label="Portrait 3 (photo3.jpg)" />
+              </div>
+              <figcaption>
+                <span>03</span>
+                <strong>Radiant Smile ☀️</strong>
+              </figcaption>
+            </figure>
+
+            <!-- Portrait Page 4 -->
+            <figure class="book-page photo-page" data-page="4" data-caption="Timeless Elegance 🌙">
+              <div class="page-photo-wrap">
+                <img src="photo4.JPG" alt="Her Portrait 4" data-label="Portrait 4 (photo4.jpg)" />
+              </div>
+              <figcaption>
+                <span>04</span>
+                <strong>Timeless Elegance 🌙</strong>
+              </figcaption>
+            </figure>
+
+            <!-- Portrait Page 5 -->
+            <figure class="book-page photo-page" data-page="5" data-caption="Warmth & Light 💫">
+              <div class="page-photo-wrap">
+                <img src="photo5.JPG" alt="Her Portrait 5" data-label="Portrait 5 (photo5.jpg)" />
+              </div>
+              <figcaption>
+                <span>05</span>
+                <strong>Warmth & Light 💫</strong>
+              </figcaption>
+            </figure>
+
+            <!-- Portrait Page 6 -->
+            <figure class="book-page photo-page" data-page="6" data-caption="Birthday Star 👑">
+              <div class="page-photo-wrap">
+                <img src="photo6.JPG" alt="Her Portrait 6" data-label="Portrait 6 (photo6.jpg)" />
+              </div>
+              <figcaption>
+                <span>06</span>
+                <strong>Birthday Star 👑</strong>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <button id="nextPageBtn" class="nav-circle" aria-label="Next page">→</button>
+      </div>
+
+      <p class="page-status" id="pageIndicator">Cover • 6 Portraits Inside</p>
+      <div class="book-thumbs" id="bookThumbs"></div>
+    </section>
+
+    <!-- 3. INTERACTIVE VINTAGE VINYL RECORD PLAYER & LIVE AUDIO VISUALIZER -->
+    <section id="vinyl" class="section">
+      <div class="glass-panel vinyl-panel">
+        <div class="vinyl-left">
+          <div class="turntable">
+            <div class="vinyl-disc" id="vinylDisc">
+              <div class="vinyl-grooves"></div>
+              <div class="vinyl-label">
+                <span>BIRTHDAY</span>
+                <strong>Faiza</strong>
+                <small>33 RPM</small>
+              </div>
+              <div class="vinyl-spindle"></div>
+            </div>
+            <div class="tonearm" id="tonearm">
+              <div class="arm-base"></div>
+              <div class="arm-rod"></div>
+              <div class="arm-head"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vinyl-right">
+          <span class="eyebrow">Your Birthday Soundtrack</span>
+          <h2>Golden Hour Vinyl Player</h2>
+          <p class="now-playing" id="nowPlaying">Ready to spin • Golden Hour Lo-Fi</p>
+
+          <!-- Live Frequency Audio Visualizer -->
+          <canvas id="vizCanvas" width="420" height="84"></canvas>
+
+          <div class="vinyl-controls">
+            <button id="vinylPlayBtn" class="amber-btn">▶ Spin Record</button>
+            <button id="trackLoFi" class="chip-btn active-track">☕ Lo-Fi Rhodes</button>
+            <button id="trackKalimba" class="chip-btn">✨ Sunbeam Kalimba</button>
+            <label for="mp3Input" class="chip-btn">🎧 Upload MP3</label>
+            <input type="file" id="mp3Input" accept="audio/*" hidden />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CRYSTAL FIREFLY WISH JAR -->
+    <section id="jar" class="section">
+      <div class="glass-panel jar-panel">
+        <div class="section-head compact">
+          <span class="eyebrow">Captured Starlight</span>
+          <h2>The Birthday Wish Jar</h2>
+          <p class="sub">Tap the glowing glass jar to uncork a firefly and read a birthday blessing—or drop your own wish inside!</p>
+        </div>
+
+        <div class="jar-layout">
+          <div class="jar-stage">
+            <button class="wish-jar" id="wishJar" aria-label="Tap to open a birthday wish">
+              <span class="jar-cork" id="jarCork"></span>
+              <span class="jar-neck"></span>
+              <span class="jar-body">
+                <span class="jar-firefly f1"></span>
+                <span class="jar-firefly f2"></span>
+                <span class="jar-firefly f3"></span>
+                <span class="jar-firefly f4"></span>
+                <span class="jar-firefly f5"></span>
+                <span class="jar-tag">Tap Me ✨</span>
+              </span>
+            </button>
+            <p class="jar-count" id="jarCounter">6 glowing wishes waiting inside</p>
+          </div>
+
+          <div class="jar-output">
+            <div class="wish-parchment" id="wishDisplay">
+              <span class="parchment-icon">✨</span>
+              <p>Tap the crystal jar to release your first glowing birthday wish.</p>
+            </div>
+
+            <div class="add-wish-row">
+              <input type="text" id="customWishInput" maxlength="90" placeholder="Add your own wish into the jar..." />
+              <button id="addWishBtn" class="outline-btn small-btn">Drop In Jar ✨</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SPIN THE GOLDEN BIRTHDAY WHEEL -->
+    <section id="wheel" class="section">
+      <div class="glass-panel wheel-panel">
+        <div class="section-head compact">
+          <span class="eyebrow">Birthday Fortune</span>
+          <h2>Spin Your Birthday Blessing Wheel</h2>
+          <p class="sub">Give the golden wheel a spin to see what special blessing the new year brings you first!</p>
+        </div>
+
+        <div class="wheel-wrap">
+          <div class="wheel-pointer">▼</div>
+          <canvas id="wheelCanvas" width="340" height="340"></canvas>
+        </div>
+
+        <button id="spinBtn" class="amber-btn" style="margin-top: 24px;">Spin the Golden Wheel ✨</button>
+        <div id="wheelResult" class="wheel-result"></div>
+      </div>
+    </section>
+
+    <!-- 6. GOLDEN BIRTHDAY CAKE & PERSONAL LETTER -->
+    <section id="cake" class="section">
+      <div class="glass-panel cake-panel">
+        <div class="section-head compact">
+          <span class="eyebrow">Make a Wish</span>
+          <h2>Blow Out Your Birthday Candles</h2>
+          <p class="sub" id="cakeStatus">Tap each flame, press the button, or blow gently into your microphone!</p>
+        </div>
+
+        <div class="cake-build">
+          <div class="candles" id="candles">
+            <div class="candle"><span class="flame"></span><span class="smoke"></span><span class="wick"></span></div>
+            <div class="candle"><span class="flame"></span><span class="smoke"></span><span class="wick"></span></div>
+            <div class="candle"><span class="flame"></span><span class="smoke"></span><span class="wick"></span></div>
+            <div class="candle"><span class="flame"></span><span class="smoke"></span><span class="wick"></span></div>
+            <div class="candle"><span class="flame"></span><span class="smoke"></span><span class="wick"></span></div>
+          </div>
+          <div class="cake-top"><div class="gold-drip"></div></div>
+          <div class="cake-base"><span>Happy Birthday</span></div>
+          <div class="cake-platter"></div>
+        </div>
+
+        <div class="cake-actions">
+          <button id="micBtn" class="outline-btn">🎙️ Blow Into Mic</button>
+          <button id="blowBtn" class="amber-btn">Blow Out Candles 🌬️</button>
+          <button id="relightBtn" class="outline-btn" style="display: none;">Relight Candles 🔥</button>
+        </div>
+
+        <div id="cakeMessage" class="cake-message">
+          <h3>✨ Happy Birthday, Faiza! ✨</h3>
+          <p>May every silent wish you just made unfold into pure happiness this year.</p>
+        </div>
+      </div>
+
+      <!-- Handwritten Birthday Letter -->
+      <article class="glass-panel letter-card">
+        <span class="eyebrow">A Birthday Note</span>
+        <h2 class="letter-title">Dearest Faiza</h2>
+        <div class="letter-body">
+          <p>
+            Happy Birthday to someone who carries warmth, quiet elegance, and genuine kindness wherever she goes. Today is a celebration of the light you bring into the world simply by being yourself.
+          </p>
+          <p>
+            My wish for your new year is that life feels softer, brighter, and fuller of moments that make your eyes sparkle. May every hope you hold close come to life in the most beautiful timing.
+          </p>
+          <p>
+            Have an unforgettable, radiant birthday—you deserve every bit of joy today brings.
+          </p>
+        </div>
+        <div class="letter-sign">
+          <span>With warmest birthday wishes,</span>
+          <strong>— Khaliq ☀️</strong>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Fullscreen Portrait Spotlight Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-inner">
+      <button id="closeLightbox" class="close-btn" aria-label="Close">×</button>
+      <img id="lightboxImg" src="" alt="Expanded Portrait" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <footer>
+    Crafted in golden light for <span>Faiza</span>'s Birthday ☀️
+  </footer>
+
+  <!-- Linked JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
